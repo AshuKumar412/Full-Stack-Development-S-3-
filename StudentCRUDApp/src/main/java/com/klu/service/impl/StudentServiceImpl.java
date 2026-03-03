@@ -43,11 +43,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student updateStudent(int id, Student student) {
         Student existing = studentRepo.findById(id).orElse(null);
+
         if (existing != null) {
             existing.setName(student.getName());
             existing.setCourse(student.getCourse());
             return studentRepo.save(existing);
         }
+
         return null;
     }
 
@@ -61,9 +63,24 @@ public class StudentServiceImpl implements StudentService {
         return "Student not found";
     }
 
-    // Search
+    // ✅ Search by ID OR Name only
     @Override
-    public List<Student> searchStudent(String name, String course) {
-        return studentRepo.findByNameIgnoreCaseAndCourseIgnoreCase(name, course);
+    public List<Student> searchStudent(String value) {
+
+        // Try searching by ID
+        try {
+            int id = Integer.parseInt(value);
+            Student student = studentRepo.findById(id).orElse(null);
+
+            if (student != null) {
+                return List.of(student);
+            }
+
+        } catch (NumberFormatException e) {
+            // Not a number → continue to search by name
+        }
+
+        // Search by Name (partial match, ignore case)
+        return studentRepo.findByNameContainingIgnoreCase(value);
     }
 }

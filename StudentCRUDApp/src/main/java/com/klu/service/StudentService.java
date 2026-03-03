@@ -17,5 +17,7 @@ public interface StudentService {
 
     String deleteStudent(int id);
 
-    List<Student> searchStudent(String name, String course); // fixed type
+   // List<Student> searchStudent(String name, String course); 
+    
+    List<Student> searchStudent(String value);
 }
