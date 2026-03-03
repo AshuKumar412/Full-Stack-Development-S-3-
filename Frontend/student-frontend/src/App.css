@@ -1,0 +1,54 @@
+/* Main App Container */
+.app-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Card Wrapper */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+}
+
+/* Section Titles */
+.section-title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a5298;
+}
+
+/* Form Layout */
+.form-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Search Layout */
+.search-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Table Wrapper */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Pagination Styling */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination span {
+  margin: 0 15px;
+  font-weight: 500;
+}
